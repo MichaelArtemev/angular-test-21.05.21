@@ -1,0 +1,116 @@
+.modal-btn-line{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+.modal-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.post{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  &__container{
+    background-color: #f5f5f5;
+    width: 800px;
+    padding-bottom: 70px;
+    position: relative;  
+  }
+  &__btn{
+    align-self: flex-start;
+    margin-left: 50px;
+  }
+  &__marker{
+    color: green;
+    position: relative;
+    top: 50px;
+  }
+  &__form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    h1{
+      width: 700px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; 
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    input{
+      width: 700px;
+      border: 2px solid black;
+      margin-bottom: 30px;
+    }
+    textarea{
+      width: 700px;
+      resize: none;
+      border: 2px solid black;
+
+    }
+  }
+}
+
+/* 
+ * я использовал динамический компонент при создании кнопок
+ * и на них как оказалось не работает space-between поэтому я извратился костылями, не предвидел такой реакции css 
+ */
+.post__btn-line{
+  display: flex;
+  margin-top: 30px;
+}
+.post__btn-line-del{
+  position: absolute;
+  left: 50px;
+}
+.post__btn-line-save{
+  position: absolute;
+  right: 50px;
+}
+
+@media (max-width: 850px){
+  .post__container{
+    width: 600px;
+  }
+  .post__form{
+    input{
+      width: 400px;
+    }
+    textarea{
+      width: 400px;
+    }
+    h1{
+      width: 400px;
+    }
+  }
+}
+@media (max-width: 470px){
+  .post__container{
+    width: 300px;
+  }
+  .post__form{
+    input{
+      width: 200px;
+    }
+    textarea{
+      width: 200px;
+    }
+    h1{
+      width: 200px;
+    }
+  }
+  .post__btn-line{
+    flex-direction: column !important;
+  }
+  .post__btn-line-del{
+    position:static;
+    margin-bottom: 15px;
+  }
+  .post__btn-line-save{
+    position:static;
+  }
+}

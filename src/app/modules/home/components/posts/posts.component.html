@@ -1,0 +1,30 @@
+<h1 class="empti-post" *ngIf="postsService.posts.length === 0 ? true : false">Постов Нет!</h1>
+<div class="card">
+  <div class="card__row">
+    <div class="card__container" *ngFor='let post of postsService.posts | paginate: { 
+      itemsPerPage: 6, 
+      currentPage: page, 
+      totalItems: totalLength 
+    }'>
+      <div class="card__content">
+        <h4 class="card__title">
+          <span>
+          {{post.title}}
+          </span>
+        </h4>
+        <div class="card__txt">
+          <!--передаю диррективу-->
+          <span class="cut">
+            {{post.text}}
+          </span>
+        </div>
+      </div>
+      <a [routerLink]="['/post', post.id]">
+        <!--динамически формирую кнопку-->
+        <app-button  [flag]="'trans'">Перейти</app-button>
+      </a> 
+    </div>
+  </div>
+</div>
+
+<pagination-controls (pageChange)="page = $event" style="text-align: center;"></pagination-controls>

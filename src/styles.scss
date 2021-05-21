@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/base";
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn-danger{
+  @include btn-mixin($btnDanger)
+}
+.btn-normal{
+  @include btn-mixin($btnColor)
+}
+.btn-trans{
+  width: 200px;
+  height: 35px;
+  background-color: #d9e8fb;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 5px 5px;
+  font-weight: bold;
+  border-color: rgba(0, 0, 0, 0.138);
+}
+.cut{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 1.3em;
+    height: 3.9em;   
+    overflow-wrap: break-word;
+}

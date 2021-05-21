@@ -1,0 +1,8 @@
+@mixin btn-mixin($color) {
+  background-color: $color;
+  cursor: pointer;
+  width: 120px;
+  padding: 5px 5px;
+  font-weight: bold;
+  border-color: rgba(0, 0, 0, 0.138);
+}

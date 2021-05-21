@@ -1,0 +1,45 @@
+.card{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  &__row{
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  &__content{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+  }
+  &__container{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  &__title{
+    align-self: center;
+    max-width: 150px; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+  &__txt{
+    border: 1px solid black;
+    padding: 15px;
+    height: 90px;
+    max-width: 200px;
+    overflow: hidden;
+  }
+}
+.empti-post{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

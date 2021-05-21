@@ -1,0 +1,47 @@
+<app-button-add></app-button-add>
+
+
+<app-modal [modalMarker]='modalMarkerSetup'>
+  <div class="modal-container">
+    <h1>Удалить?</h1>
+    <div class="modal-btn-line">
+      <button class="btn-normal" style="margin-right: 15px;" (click)="hideModal()">Нет</button>
+      <button class="btn-danger" (click)="deletePost()">Да</button>
+    </div>  
+  </div>  
+</app-modal>
+
+<div class="post">
+  <div class="post__container">
+    <form class="post__form" [formGroup]="form">
+      <app-button (click)="jumpBack()" [flag]="'normal'" class="post__btn">Назад</app-button>
+      <h1 class="post__trunc">Запись : {{post.title}}</h1>
+      <input 
+        type="text" 
+        [value]="post.title"
+        formControlName="title" 
+        [ngStyle]="{borderColor: isEmpty ? 'red' : 'none'}" 
+        pattern="^[а-яА-ЯёЁa-zA-Z0-9]+$"
+      >
+      <textarea 
+        name="post-text" 
+        cols="30" 
+        rows="10" 
+        [value]="post.text" 
+        formControlName="text"
+        [ngStyle]="{borderColor: isEmpty ? 'red' : 'none'}" 
+        pattern="^[а-яА-ЯёЁa-zA-Z0-9]+$"
+      >
+      </textarea>
+      <div class="post__btn-line">
+        <app-button (click)="showModal()" [flag]="'danger'" class="post__btn-line-del">Удалить</app-button>
+        <app-button (click)="changePost()" [flag]="'normal'" class="post__btn-line-save">Сохранить</app-button>
+      </div>
+      <div class="post__marker" *ngIf="markerStatus">
+        <small>
+          Пост изменен
+        </small>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<!--прокидываю в общий компонент модалки размету для текущей имплиментации-->
+<button (click)="openModal()" class="btn-normal btn-add">+ Добавить</button>
+    <app-modal [modalMarker]='modalMarkerSetup'>
+      <form class="add-post__modal" [formGroup]="form" (ngSubmit)="addPost()">
+        <div class="add-post__info">
+          <input 
+            type="text" 
+            formControlName="title" 
+            placeholder="title" 
+            [(ngModel)]="inputTitle"
+          >
+          <textarea
+           cols="30" 
+           rows="10" 
+           formControlName="text"
+           [(ngModel)]="inputText" 
+           formControlName="text"
+           placeholder="text"
+          ></textarea>
+        </div>
+        <div class="add-post__btn-line">
+          <button class="btn-normal" type="button" (click)="closeModal()" style="margin-right: 15px;">Отмена</button>
+          <button class="btn-normal" type="submit" [disabled]="form.invalid">Сохранить</button>
+        </div>        
+      </form>      
+</app-modal>
